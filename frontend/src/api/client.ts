@@ -2,7 +2,7 @@
  * API client for communicating with the backend.
  */
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:9000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
 
 async function fetchAPI<T>(
   endpoint: string,

@@ -36,6 +36,8 @@ This application follows the architecture described in `Agent.md` and `ARCHITECT
    ```
 
 2. **Set environment variables:**
+   
+   The backend reads environment variables directly. Set them in your shell:
    ```bash
    export OPENAI_API_KEY=your-openai-api-key-here
    ```
@@ -48,6 +50,11 @@ This application follows the architecture described in `Agent.md` and `ARCHITECT
    export POSTGRES_USER=postgres
    export POSTGRES_PASSWORD=postgres
    ```
+   
+   **Note:** Java applications don't use `.env` files directly. You can:
+   - Set variables in your shell before running: `export OPENAI_API_KEY=...`
+   - Use a tool like `direnv` to load from a `.env` file
+   - Or modify `application.conf` directly (not recommended for secrets)
 
 3. **Build the project:**
    ```bash
@@ -79,9 +86,15 @@ This application follows the architecture described in `Agent.md` and `ARCHITECT
    ```
 
 3. **Set environment variables:**
-   Create a `.env` file:
+   Create a `.env` file in the `frontend/` directory:
    ```bash
+   # In frontend/.env
    VITE_API_BASE_URL=http://localhost:8080
+   ```
+   
+   Note: A `.env.example` file is provided as a template. You can copy it:
+   ```bash
+   cp .env.example .env
    ```
 
 4. **Start the development server:**
